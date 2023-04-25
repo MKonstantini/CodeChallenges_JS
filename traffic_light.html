@@ -43,14 +43,14 @@
 
         //loop through the 4 combination states, assigning each element to its color:
         let state = 0;
-        function myFunction() {
+        function ChangeLight() {
             state = (state + 1) % 4
             
             for (item of items) {
                 item.style.backgroundColor = combos[state][items.indexOf(item)]                
             }
         }
-        setInterval(myFunction, 2 * 1000)
+        setInterval(ChangeLight, 2 * 1000)
     </script>
 </body>
 </html>
