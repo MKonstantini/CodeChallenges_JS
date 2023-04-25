@@ -1,4 +1,4 @@
-// Function that checks if num is a palindrome
+// Function that checks if a number is a palindrome
 
 function CheckPalindrome(num) {
     //Break digits into an array:
