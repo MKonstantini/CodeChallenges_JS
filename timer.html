@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <h1>Timer</h1>
+    <form>
+        <input id="userHr" type="number" placeholder="Hours">
+        <input id="userMin" type="number" placeholder="Minutes">
+        <input id="userSec" type="number" placeholder="Seconds">
+        <br><br>
+        <input type="button" onclick="RunTimer()" value="Run Timer">
+        <input type="button" onclick="ResetTimer()" value="Reset Timer">
+    </form>
+    <p id="Timer"> 00 : 00 : 00 </p>
+
+    <script>
+        let timer = document.querySelector("#Timer");
+        let isRunning = false;
+
+        function RunTimer() {
+            // get user inputs for sec/min/hr:
+            let sec = document.querySelector("#userSec").value;
+            let min = document.querySelector("#userMin").value;
+            let hr = document.querySelector("#userHr").value;
+
+            //check for error - inputs not between 0 and 60:
+            if ((sec < 0 || sec > 60) || (min < 0 || min > 60) || (hr < 0 || hr > 60)) {
+                alert("Please input numbers between 0 and 60");
+            }
+            else {
+                //check for error - timer is already running:
+                if (isRunning) alert("Please reset the timer");
+                else {
+                    isRunning = true;
+                    timerInterval = setInterval(() => {
+                        // format sec/min/hr to like a digital clock:
+                        if (sec < 10 && sec[0] != '0') sec = '0' + sec;
+                        if (sec == 0) sec = '00';
+                        if (min < 10 && min[0] != '0') min = '0' + min; 
+                        if (min == 0) min = '00';
+                        if (hr < 10 && hr[0] != '0') hr = '0' + hr; 
+                        if (hr == 0) hr = '00';
+                        
+                        //update UI:
+                        timer.textContent = `${hr} : ${min} : ${sec}`;
+                        
+                        // subtract 1 from sec, update sec/min/hr accordingly:
+                        sec--;
+                        if (sec < 0) {
+                            sec = 59;
+                            min--;
+                            
+                            if (min < 0) {
+                                min = 59;
+                                hr--;
+                                
+                                if (hr < 0) {
+                                    ResetTimer();
+                                    setTimeout(() => {
+                                        alert("Timer finished")
+                                    }, 1 * 1000);
+                                }
+                            }
+                        }
+                    }, 1 * 1000);
+                }
+            }
+        }
+
+        function ResetTimer() {
+            // clears timer interval:
+            clearInterval(timerInterval);
+            isRunning = false;
+
+            // reset UI:
+            timer.textContent = '00 : 00 : 00';
+            document.querySelector("#userSec").value = '';
+            document.querySelector("#userMin").value = '';
+            document.querySelector("#userHr").value = '';
+        }
+    </script>
+</body>
+</html>
