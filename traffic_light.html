@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse</title>
+    <style>
+        .container {
+            display: grid;
+            row-gap: 10px;
+            grid-template-columns: 200px;
+            grid-template-rows: 1fr 1fr 1fr;        
+        }
+        .item {
+            width: 200px;
+            height: 200px;
+            background-color: #8b8b8b;
+            border-radius: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="item1"></div>
+        <div class="item" id="item2"></div>
+        <div class="item" id="item3"></div>
+    </div>
+    <script>
+        let items = [
+            document.querySelector("#item1"),
+            document.querySelector("#item2"),
+            document.querySelector("#item3")
+        ]
+        let combos = [
+            ['red','grey','grey'],
+            ['red','yellow','grey'],
+            ['grey','grey','green'],
+            ['grey','yellow','grey']
+        ]
+
+        let state = 0;
+        function myFunction() {
+            state = (state + 1) % 4
+            
+            for (item of items) {
+                item.style.backgroundColor = combos[state][items.indexOf(item)]                
+            }
+        }
+
+        setInterval(myFunction, 2 * 1000)
+    </script>
+</body>
+</html>
