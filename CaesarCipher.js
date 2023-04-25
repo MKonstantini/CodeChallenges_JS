@@ -10,14 +10,14 @@ function ToCaesarCipher(message, displacement) {
     // split the given message in an array:
     msgArray = message.split('');
 
-    // create an array of the positions of the letters:
+    // create an array of the letter's positions:
     let posArray = [];
     for (i in msgArray) {
         let pos = letters.indexOf(msgArray[i]);
         posArray.push(pos);
     }
 
-    //displace each position in the positions array (account for spacing and 0 to 25 position range):
+    //displace each position in the positions array (account for spacing and the 0 to 25 position range):
     for (i in posArray) {
         if (posArray[i] == -1) posArray[i] = '_';  
         else {
