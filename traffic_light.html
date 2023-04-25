@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>isPalindrome</title>
+    <title>Traffic Light</title>
     <style>
         .container {
             display: grid;
@@ -27,11 +27,13 @@
         <div class="item" id="item3"></div>
     </div>
     <script>
+        //get document elements, put in array:
         let items = [
             document.querySelector("#item1"),
             document.querySelector("#item2"),
             document.querySelector("#item3")
         ]
+        //create array for color combinations: 
         let combos = [
             ['red','grey','grey'],
             ['red','yellow','grey'],
@@ -39,6 +41,7 @@
             ['grey','yellow','grey']
         ]
 
+        //loop through the 4 combination states, assigning each element to its color:
         let state = 0;
         function myFunction() {
             state = (state + 1) % 4
@@ -47,7 +50,6 @@
                 item.style.backgroundColor = combos[state][items.indexOf(item)]                
             }
         }
-
         setInterval(myFunction, 2 * 1000)
     </script>
 </body>
