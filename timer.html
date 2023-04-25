@@ -28,12 +28,12 @@
             let min = document.querySelector("#userMin").value;
             let hr = document.querySelector("#userHr").value;
 
-            //check for error - inputs not between 0 and 60:
+            // check for error - inputs not between 0 and 60:
             if ((sec < 0 || sec > 60) || (min < 0 || min > 60) || (hr < 0 || hr > 60)) {
                 alert("Please input numbers between 0 and 60");
             }
             else {
-                //check for error - timer is already running:
+                // check for error - timer is already running:
                 if (isRunning) alert("Please reset the timer");
                 else {
                     isRunning = true;
@@ -46,7 +46,7 @@
                         if (hr < 10 && hr[0] != '0') hr = '0' + hr; 
                         if (hr == 0) hr = '00';
                         
-                        //update UI:
+                        // update UI:
                         timer.textContent = `${hr} : ${min} : ${sec}`;
                         
                         // subtract 1 from sec, update sec/min/hr accordingly:
