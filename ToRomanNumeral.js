@@ -23,7 +23,7 @@ function ConvertToRoman(num) {
                 break;
         }
         // calculate roman numeral using roman digits:
-        let value = numArray[i];
+        const value = numArray[i];
 
         if      (value == 9)    romanArray.unshift(digit + whole);
         else if (value == 4)    romanArray.unshift(digit + half);
@@ -33,7 +33,7 @@ function ConvertToRoman(num) {
     }
 
     // append M for each thousand in num:
-    let thousandsAmount = Math.floor(num / 1000);
+    const thousandsAmount = Math.floor(num / 1000);
     romanArray.unshift('M'.repeat(thousandsAmount));
 
     // concatenate result into a string:
