@@ -1,6 +1,6 @@
 // Function that returns given number in roman numerals
 
-function ConvertToRoman(num) {
+function convertToRoman(num) {
     // create an array out of given num and an empty array for the answer:
     let numArray = num.toString().split('');
     let romanArray = [];
