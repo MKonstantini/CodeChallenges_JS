@@ -1,6 +1,6 @@
 // Function that checks if a number is a palindrome
 
-function CheckPalindrome(num) {
+function checkPalindrome(num) {
     //Break digits into an array:
     let draftNum = num;
     let arrayNum1 = [];
@@ -22,5 +22,5 @@ function CheckPalindrome(num) {
         }
     }
 
-    console.log(`Palindrome status: ${isPalindrome}`);
+    return isPalindrome;
 }
