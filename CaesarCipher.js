@@ -1,7 +1,7 @@
 // Function that applies the Caesar Cipher
 // (returns string after displacing its letters along the alphabet by a given amount)
         
-function ToCaesarCipher(message, displacement) {
+function toCaesarCipher(message, displacement) {
     const letters = ['a','b','c','d','e','f','g',
                      'h','i','j','k','l','m','n',
                      'o','p','q','r','s','t','u',
