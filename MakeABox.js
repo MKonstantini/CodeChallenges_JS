@@ -22,10 +22,10 @@ function makeBox(num) {
     return box;
 }    
 
-/* Example - makeBox(5) :
+/* Example - makeBox(4) :
 
-    #####
-    #   #
-    #   #
-    #####
+    # # # #
+    #     #
+    #     #
+    # # # #
 */
