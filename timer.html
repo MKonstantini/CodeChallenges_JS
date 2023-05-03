@@ -13,8 +13,8 @@
         <input id="userMin" type="number" placeholder="Minutes">
         <input id="userSec" type="number" placeholder="Seconds">
         <br><br>
-        <input type="button" onclick="RunTimer()" value="Run Timer">
-        <input type="button" onclick="ResetTimer()" value="Reset Timer">
+        <input type="button" onclick="runTimer()" value="Run Timer">
+        <input type="button" onclick="resetTimer()" value="Reset Timer">
     </form>
     <p id="Timer"> 00 : 00 : 00 </p>
 
@@ -22,7 +22,7 @@
         let timer = document.querySelector("#Timer");
         let isRunning = false;
 
-        function RunTimer() {
+        function runTimer() {
             // get user inputs for sec/min/hr:
             let sec = document.querySelector("#userSec").value;
             let min = document.querySelector("#userMin").value;
@@ -60,7 +60,7 @@
                                 hr--;
                                 
                                 if (hr < 0) {
-                                    ResetTimer();
+                                    resetTimer();
                                     setTimeout(() => {
                                         alert("Timer finished")
                                     }, 1 * 1000);
@@ -72,7 +72,7 @@
             }
         }
 
-        function ResetTimer() {
+        function resetTimer() {
             // clears timer interval:
             clearInterval(timerInterval);
             isRunning = false;
