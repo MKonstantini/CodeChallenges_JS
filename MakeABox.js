@@ -3,7 +3,7 @@
 function makeBox(num) {
     const box = [];
     
-    //loop within loop for square, length = num:
+    //loop within loop for square, with a length of num:
     for (let i = 0; i < num; i++) {
         const row = [];
         for (let j = 0; j < num; j++) {
